@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Job - Tu Futuro Profesional Comienza Aquí</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Header y navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 71, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(116, 81, 220, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-menu a:hover {
+            color: #7451dc;
+            transform: translateY(-2px);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #7451dc;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #FFFFFF;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(9px, 9px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #7451dc, #000047);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(116, 81, 220, 0.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: floatBackground 20s linear infinite;
+        }
+        
+        @keyframes floatBackground {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: slideInUp 1s ease-out;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            animation: slideInUp 1s ease-out 0.3s both;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+        
+        .btn {
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 71, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #7451dc;
+            color: #FFFFFF;
+            border: 2px solid #7451dc;
+        }
+        
+        .btn-secondary:hover {
+            background: #000047;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(116, 81, 220, 0.4);
+        }
+
+        .btn-free {
+            background: #000047;
+            color: #FFFFFF;
+            border: 2px solid #000047;
+        }
+        
+        .btn-free:hover {
+            background: #7451dc;
+            border-color: #7451dc;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 71, 0.4);
+        }
+
+        .btn-inscribirse {
+            background: #2563eb;
+            color: #FFFFFF;
+            border: 2px solid #2563eb;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-inscribirse:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Secciones */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #7451dc, #000047);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #000047;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Grid de servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: #FFFFFF;
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 71, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(116, 81, 220, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: #7451dc;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(116, 81, 220, 0.15);
+            border-color: rgba(116, 81, 220, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        /* Sección de cursos */
+        .courses {
+            background: linear-gradient(135deg, #F8F9FA, #ECEFF1);
+        }
+        
+        .course-card {
+            background: #FFFFFF;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 71, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(116, 81, 220, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(116, 81, 220, 0.15);
+        }
+        
+        .course-image {
+            height: 220px;
+            background: linear-gradient(135deg, #7451dc, #000047);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(116, 81, 220, 0.2) 0%, transparent 50%);
+        }
+        
+        .course-content {
+            padding: 2rem;
+        }
+        
+        .course-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .course-card .price {
+            color: #7451dc;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+        }
+        
+        /* Extensión LinkedIn */
+        .extension-section {
+            background: linear-gradient(135deg, #000047, #7451dc);
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .extension-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(116, 81, 220, 0.05) 2px, transparent 2px);
+            background-size: 80px 80px;
+            animation: floatBackground 30s linear infinite reverse;
+        }
+        
+        .extension-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .extension-info h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .extension-info p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+        
+        .feature-list li {
+            padding: 0.8rem 0;
+            position: relative;
+            padding-left: 2.5rem;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #000047;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: rgba(0, 0, 71, 0.2);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .extension-visual {
+            text-align: center;
+        }
+        
+        .chrome-extension {
+            width: 450px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(116, 81, 220, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chrome-extension::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent, rgba(255, 255, 255, 0.3));
+            border-radius: 25px;
+            z-index: -1;
+        }
+        
+        .extension-icon {
+            text-align: center;
+        }
+        
+        .extension-icon div:first-child {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            color: #7451dc;
+        }
+        
+        .extension-icon div:nth-child(2) {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        
+        .extension-icon div:last-child {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            color: #FFFFFF;
+        }
+        
+        /* Material Descargable */
+        .downloads {
+            background: #FFFFFF;
+        }
+
+        .ebooks-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .ebook-card {
+            background: #FFFFFF;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 71, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 2px solid rgba(116, 81, 220, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .ebook-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #7451dc, #000047);
+            border-radius: 25px 25px 0 0;
+        }
+        
+        .ebook-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(116, 81, 220, 0.2);
+            border-color: rgba(116, 81, 220, 0.3);
+        }
+        
+        .ebook-cover {
+            height: 220px;
+            background: linear-gradient(135deg, #7451dc, #000047);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ebook-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        .ebook-content {
+            padding: 2.5rem;
+        }
+        
+        .ebook-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+        
+        .ebook-category {
+            color: #7451dc;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+        }
+        
+        .ebook-description {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        .ebook-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+        
+        .ebook-features li {
+            padding: 0.6rem 0;
+            position: relative;
+            padding-left: 2rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .ebook-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #7451dc;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .ebook-pricing {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .current-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #7451dc;
+        }
+        
+        .original-price {
+            font-size: 1.2rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        
+        .free-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #000047;
+        }
+        
+        .discount-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .download-section {
+            margin-bottom: 4rem;
+        }
+        
+        .download-title {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .free-title {
+            color: #000047;
+        }
+        
+        .premium-title {
+            color: #7451dc;
+        }
+        
+        /* App Section */
+        .app-section {
+            background: linear-gradient(135deg, #000047, #7451dc);
+            color: #FFFFFF;
+            position: relative;
+        }
+        
+        .app-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .app-info h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .app-info p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .phone-mockup {
+            width: 320px;
+            height: 640px;
+            background: #000047;
+            border-radius: 35px;
+            margin: 0 auto;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 71, 0.4);
+            border: 3px solid #7451dc;
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #F8F9FA, #ECEFF1);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phone-screen::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: #000047;
+            border-radius: 3px;
+        }
+        
+        /* Planet Match Styles */
+        .planet-match {
+            background: linear-gradient(135deg, #F8F9FA, #ECEFF1);
+        }
+        
+        .match-form {
+            background: linear-gradient(135deg, #7451dc, #000047);
+            padding: 3rem;
+            border-radius: 25px;
+            color: #FFFFFF;
+            margin-bottom: 3rem;
+        }
+        
+        .match-form h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 71, 0.08);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .job-matches {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .match-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid #E5E7EB;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 71, 0.05);
+        }
+        
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 71, 0.1);
+        }
+        
+        .match-card.high {
+            border-color: #10B981; /* Green */
+            background: #F0FDF4; /* Light Green */
+        }
+        
+        .match-card.medium {
+            border-color: #F59E0B; /* Yellow */
+            background: #FFFBEB; /* Light Yellow */
+        }
+        
+        .match-card.low {
+            border-color: #EF4444; /* Red */
+            background: #FEF2F2; /* Light Red */
+        }
+        
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .match-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .match-badge.high {
+            background: #10B981;
+            color: white;
+        }
+        
+        .match-badge.medium {
+            background: #F59E0B;
+            color: white;
+        }
+        
+        .match-badge.low {
+            background: #EF4444;
+            color: white;
+        }
+        
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-location {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .job-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .requirements-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .requirement-tag {
+            background: rgba(116, 81, 220, 0.1);
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #333;
+        }
+        
+        .match-progress {
+            width: 100%;
+            height: 12px;
+            background: #E5E7EB;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        
+        .match-progress-bar {
+            height: 100%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+        
+        .match-progress-bar.high {
+            background: #10B981;
+        }
+        
+        .match-progress-bar.medium {
+            background: #F59E0B;
+        }
+        
+        .match-progress-bar.low {
+            background: #EF4444;
+        }
+        
+        .rank-badge {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: #7451dc;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(116, 81, 220, 0.4);
+            border: 3px solid white;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #000047, #7451dc);
+            color: #FFFFFF;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 25px;
+            margin-top: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 71, 0.2);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #000047;
+            color: #FFFFFF;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .footer-section a {
+            color: #FFFFFF;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #7451dc;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #7451dc;
+            color: #FFFFFF;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 71, 0.98);
+                flex-direction: column;
+                justify-content: start;
+                padding-top: 3rem;
+                transition: left 0.3s ease;
+                backdrop-filter: blur(20px);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            /* ACHICAR BOTONES HERO SECTION */
+            .cta-buttons .btn {
+                padding: 0.8rem 1.5rem; /* Reduced padding */
+                font-size: 0.8rem;      /* Reduced font size */
+                width: 48%;             /* Allow two buttons per row */
+            }
+            
+            .cta-buttons {
+                gap: 0.8rem; /* Reduced gap */
+            }
+            /* FIN ACHICAR BOTONES */
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .ebooks-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .extension-content, .app-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .phone-mockup {
+                width: 280px;
+                height: 560px;
+            }
+            
+            .chrome-extension {
+                width: 320px;
+                height: 240px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .extension-info h2, .app-info h2 {
+                font-size: 2.2rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .match-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .requirements-grid {
+                justify-content: center;
+            }
+            .match-card:hover {
+                transform: translateY(0);
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero {
+                padding: 0 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* ACHICAR BOTONES HERO SECTION - Full width on very small screens */
+            .cta-buttons .btn {
+                width: 100%;
+            }
+            /* FIN ACHICAR BOTONES */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="logo">Planet Job</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#app">Planet STEAM App</a></li>
+                <li><a href="#descargas">Descargas</a></li>
+                <li><a href="#prueba">Prueba Técnica</a></li>
+                <li><a href="#extension">Extensión</a></li>
+                <li><a href="#empleos">Planet Match</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Tu Futuro Profesional Comienza Aquí</h1>
+            <p>Plataforma integral para profesionales en tecnología con cursos especializados, optimización de CV, herramientas de LinkedIn y oportunidades laborales en Data Analytics y Programación</p>
+            <div class="cta-buttons">
+                <a href="#servicios" class="btn btn-primary">Servicios</a>
+                <a href="#cursos" class="btn btn-primary">Cursos</a>
+                <a href="#portafolio" class="btn btn-primary">Portafolio</a>
+                <a href="#app" class="btn btn-primary">Planet STEAM App</a>
+                <a href="#descargas" class="btn btn-primary">Descargas</a>
+                <a href="#prueba" class="btn btn-primary">Prueba Técnica</a>
+                <a href="#extension" class="btn btn-primary">Extensión</a>
+                <a href="#empleos" class="btn btn-primary">Planet Match</a>
+                <a href="#contacto" class="btn btn-primary">Contacto</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Dos servicios principales diseñados para potenciar tu carrera profesional en tecnología</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">📄</span>
+                    <h3>Optimización de CV Estilo Harvard</h3>
+                    <p>Servicio profesional de revisión y optimización de currículums siguiendo el prestigioso formato Harvard. Incluye análisis ATS, optimización de keywords, estructura profesional y feedback personalizado para destacar entre miles de candidatos.</p>
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="#cv-brochure" class="btn btn-secondary">Descargar Brochure</a>
+                        <a href="#optimizar-cv" class="btn btn-secondary">Más Información</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🎓</span>
+                    <h3>Cursos Online Especializados</h3>
+                    <p>Programas de formación práctica en Data Analyst, Web Portfolio y Programming Advance. Diseñados por expertos de la industria con proyectos reales, mentoría personalizada y certificación profesional reconocida.</p>
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="#cursos-brochure" class="btn btn-secondary">Descargar Brochure</a>
+                        <a href="#cursos" class="btn btn-secondary">Ver Cursos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cursos" class="section courses">
+        <div class="container">
+            <h2 class="section-title">Cursos Online Especializados</h2>
+            <p class="section-subtitle">Programas de formación práctica diseñados por expertos de la industria</p>
+            
+            <div class="services-grid">
+                <div class="course-card">
+                    <div class="course-image">📊</div>
+                    <div class="course-content">
+                        <h3>Data Analyst</h3>
+                        <div class="price">s/. 200</div>
+                        <p>Domina Python, SQL, Excel y herramientas de visualización como Tableau y Power BI. Aprende análisis estadístico, business intelligence y storytelling con datos través de proyectos reales del mercado laboral.</p>
+                        <a href="#" class="btn-inscribirse">Inscribirse</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">🌐</div>
+                    <div class="course-content">
+                        <h3>Web Portfolio</h3>
+                        <div class="price">s/. 200</div>
+                        <p>Crea un portafolio web profesional desde cero usando HTML5, CSS3, JavaScript moderno y frameworks actuales. Aprende diseño responsivo, UX/UI y despliegue para mostrar tus proyectos y conseguir trabajo.</p>
+                        <a href="#" class="btn-inscribirse">Inscribirse</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">💻</div>
+                    <div class="course-content">
+                        <h3>Programming Advance</h3>
+                        <div class="price">s/. 200</div>
+                        <p>Programación avanzada con Python, estructuras de datos, algoritmos, desarrollo de APIs, bases de datos y arquitectura de software. Para desarrolladores que buscan alcanzar el siguiente nivel profesional.</p>
+                        <a href="#" class="btn-inscribirse">Inscribirse</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portafolio" class="section downloads">
+        <div class="container">
+            <h2 class="section-title">Portafolios Data Analyst</h2>
+            <p class="section-subtitle">Templates premium listos para usar y mostrar tus proyectos de forma impactante.</p>
+            
+            <div class="download-section">
+                <h3 class="download-title premium-title">⭐ Templates Premium</h3>
+                <div class="ebooks-showcase">
+                    <div class="ebook-card">
+                        <div class="ebook-cover" style="background: linear-gradient(135deg, #1d4ed8, #2563eb);">🚀</div>
+                        <div class="ebook-content">
+                            <div class="ebook-category" style="color: #2563eb;">Executive Style</div>
+                            <h3 class="ebook-title">Portafolio Premium: Impacto de Negocio</h3>
+                            <p class="ebook-description">Diseño enfocado en la presentación de resultados con alto impacto de negocio. Ideal para profesionales Senior que necesitan comunicar el ROI de sus proyectos de Data Science.</p>
+                            
+                            <ul class="ebook-features">
+                                <li>Templates en HTML, React y Vue</li>
+                                <li>Integración de Dashboard (Chart.js)</li>
+                                <li>Diseño orientado a métricas de negocio</li>
+                                <li>Actualizaciones gratuitas por 1 año</li>
+                            </ul>
+                            
+                            <div class="ebook-pricing">
+                                <div class="price-container">
+                                    <span class="current-price">$49.99</span>
+                                    <span class="original-price">$79.99</span>
+                                </div>
+                                <span class="discount-badge">37% OFF</span>
+                            </div>
+                            
+                            <a href="#" class="btn btn-secondary">Comprar y Descargar</a>
+                        </div>
+                    </div>
+                    
+                    <div class="ebook-card">
+                        <div class="ebook-cover" style="background: linear-gradient(135deg, #ef4444, #f59e0b);">🎨</div>
+                        <div class="ebook-content">
+                            <div class="ebook-category" style="color: #f59e0b;">Visual Storytelling</div>
+                            <h3 class="ebook-title">Portafolio Premium: Visual & Creativo</h3>
+                            <p class="ebook-description">Un diseño moderno y visualmente atractivo. Perfecto para destacar por tu estética y la calidad de tus visualizaciones de datos y storytelling técnico.</p>
+                            
+                            <ul class="ebook-features">
+                                <li>Animaciones CSS/JavaScript avanzadas</li>
+                                <li>Micro-interacciones y Dark Mode</li>
+                                <li>Sección de blog técnico integrada</li>
+                                <li>Soporte técnico por 6 meses</li>
+                            </ul>
+                            
+                            <div class="ebook-pricing">
+                                <div class="price-container">
+                                    <span class="current-price">$59.99</span>
+                                    <span class="original-price">$89.99</span>
+                                </div>
+                                <span class="discount-badge">33% OFF</span>
+                            </div>
+                            
+                            <a href="#" class="btn btn-secondary">Comprar y Descargar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section container" style="margin-top: 4rem; background: linear-gradient(135deg, #000047, #7451dc);">
+                <h2>Descarga Templates de los Portafolios</h2>
+                <a href="#descargas" class="btn btn-primary" style="background: rgba(255, 255, 255, 0.3); border-color: white; color: white;">Ver todos los Templates</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="app" class="section app-section">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-info">
+                    <h2>Planet STEAM App</h2>
+                    <p>Nuestra aplicación móvil revolucionaria para el aprendizaje interactivo en ciencias, tecnología, ingeniería, arte y matemáticas. Una experiencia gamificada que transforma el estudio en una aventura educativa.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Lecciones interactivas completamente gamificadas</li>
+                        <li>Ejercicios prácticos con inteligencia artificial adaptativa</li>
+                        <li>Seguimiento detallado de progreso personalizado</li>
+                        <li>Comunidad global de estudiantes y mentores</li>
+                    </ul>
+                    
+                    <a href="https://lcarrenoy.github.io/PlanetSTEAM/" target="_blank" class="btn btn-primary">Probar la App</a>
+                </div>
+                
+                <div class="extension-visual">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">📱</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="descargas" class="section downloads">
+        <div class="container">
+            <h2 class="section-title">Material Descargable Adicional</h2>
+            <p class="section-subtitle">Recursos gratuitos para optimizar tu CV y tus habilidades técnicas.</p>
+            
+            <div class="cta-section container" style="background: linear-gradient(135deg, #7451dc, #000047); color: white; margin-top: 0; margin-bottom: 4rem;">
+                <h2>Acceso Directo a Todos los Archivos</h2>
+                <p style="font-size: 1.1rem; opacity: 0.9;">Descarga plantillas de CV, guías de código y más recursos gratuitos.</p>
+                <div style="display: flex; justify-content: center; margin-top: 2rem;">
+                    <a href="#descargas" class="btn btn-primary" style="background: white; color: #000047; border-color: white;">IR A TODOS LOS ARCHIVOS</a>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <h3 class="download-title free-title">📥 Recursos Completamente Gratuitos</h3>
+                <div class="ebooks-showcase">
+                    <div class="ebook-card">
+                        <div class="ebook-cover">📄</div>
+                        <div class="ebook-content">
+                            <div class="ebook-category">CV Optimization</div>
+                            <h3 class="ebook-title">CV Perfecto para Practicantes</h3>
+                            <p class="ebook-description">Template profesional diseñado específicamente para estudiantes y practicantes sin experiencia laboral previa. Incluye secciones optimizadas para proyectos académicos y habilidades técnicas.</p>
+                            
+                            <ul class="ebook-features">
+                                <li>Template editable en Word y PDF</li>
+                                <li>Guía paso a paso de optimización</li>
+                            </ul>
+                            
+                            <div class="ebook-pricing">
+                                <div class="price-container">
+                                    <span class="free-price">GRATIS</span>
+                                </div>
+                            </div>
+                            
+                            <a href="#" class="btn btn-free">Descargar Gratis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="ebook-card">
+                        <div class="ebook-cover">💰</div>
+                        <div class="ebook-content">
+                            <div class="ebook-category">Finance Analytics</div>
+                            <h3 class="ebook-title">CV para Analista de Finanzas</h3>
+                            <p class="ebook-description">Formato optimizado para posiciones en el sector financiero, destacando habilidades analíticas, conocimientos específicos del mercado y experiencia con herramientas financieras especializadas.</p>
+                            
+                            <ul class="ebook-features">
+                                <li>Diseño profesional sector financiero</li>
+                                <li>Keywords del sector financiero</li>
+                            </ul>
+                            
+                            <div class="ebook-pricing">
+                                <div class="price-container">
+                                    <span class="free-price">GRATIS</span>
+                                </div>
+                            </div>
+                            
+                            <a href="#" class="btn btn-free">Descargar Gratis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="ebook-card">
+                        <div class="ebook-cover">📊</div>
+                        <div class="ebook-content">
+                            <div class="ebook-category">Programming</div>
+                            <h3 class="ebook-title">Bootcamp Completo de R</h3>
+                            <p class="ebook-description">Guía completa de introducción al lenguaje R para análisis estadístico y visualización de datos. Más de 50 páginas de contenido con ejercicios prácticos y casos de estudio reales.</p>
+                            
+                            <ul class="ebook-features">
+                                <li>50+ páginas de contenido premium</li>
+                                <li>Ejercicios prácticos incluidos</li>
+                            </ul>
+                            
+                            <div class="ebook-pricing">
+                                <div class="price-container">
+                                    <span class="free-price">GRATIS</span>
+                                </div>
+                            </div>
+                            
+                            <a href="#" class="btn btn-free">Descargar Gratis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prueba" class="section">
+        <div class="container">
+            <h2 class="section-title">Simulaciones y Pruebas Técnicas</h2>
+            <p class="section-subtitle">Prepárate para entrevistas con nuestras simulaciones de pruebas psicológicas, técnicas y de entrevistas.</p>
+            
+            <div class="cta-section container" style="background: linear-gradient(135deg, #7451dc, #000047); color: white; margin-top: 0; margin-bottom: 2rem;">
+                <h2>Acceso a Pruebas Psicológicas, Entrevistas y Más</h2>
+                <p style="font-size: 1.1rem; opacity: 0.9;">Mide tus conocimientos en Data Science, programación y tu perfil laboral completo.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
+                    <a href="#prueba" class="btn btn-secondary" style="background: white; color: #7451dc; border-color: white;">IR A PRUEBAS Y SIMULACIONES</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="extension" class="section extension-section">
+        <div class="container">
+            <div class="extension-content">
+                <div class="extension-info">
+                    <h2>Revisor de LinkedIn</h2>
+                    <p>Nuestra extensión revolucionaria de Google Chrome que analiza tu perfil de LinkedIn en tiempo real y te proporciona recomendaciones inteligentes para optimizar tu presencia profesional y aumentar tu visibilidad.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Análisis automático de perfil en tiempo real</li>
+                        <li>Sugerencias de keywords para tu industria</li>
+                        <li>Optimización de headline y resumen profesional</li>
+                        <li>Análisis de networking y conexiones estratégicas</li>
+                    </ul>
+                    
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="#" class="btn btn-primary">Instalar Extensión</a>
+                        <a href="#" class="btn btn-secondary">Ver Demo</a>
+                    </div>
+                </div>
+                
+                <div class="extension-visual">
+                    <div class="chrome-extension">
+                        <div class="extension-icon">
+                            <div>🔍</div>
+                            <div>LinkedIn Optimizer</div>
+                            <div>Chrome Extension</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="empleos" class="section planet-match">
+        <div class="container">
+            <h2 class="section-title">🔥 Planet Match</h2>
+            <p class="section-subtitle">Descubre tu compatibilidad con ofertas laborales del mercado</p>
+            
+            <div class="cta-section container" style="background: linear-gradient(135deg, #000047, #7451dc); color: white; margin-top: 0; margin-bottom: 4rem;">
+                <h2>Ingresa a la Herramienta Planet Match</h2>
+                <p style="font-size: 1.1rem; opacity: 0.9;">Encuentra al instante tu compatibilidad con el mercado laboral.</p>
+                <div style="display: flex; justify-content: center; margin-top: 2rem;">
+                    <a href="#empleos" class="btn btn-primary" style="background: white; color: #000047; border-color: white;">IR A PLANET MATCH</a>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #10B981;" id="highMatches">0</div>
+                    <div class="stat-label">Matches Excelentes (80%+)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #F59E0B;" id="mediumMatches">0</div>
+                    <div class="stat-label">Buenos Matches (60-79%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #7451dc;" id="avgMatch">0%</div>
+                    <div class="stat-label">Match Promedio</div>
+                </div>
+            </div>
+
+            <div class="match-form">
+                <h3>👤 Mi Perfil Profesional</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="experienceYears">Años de Experiencia Relevante</label>
+                        <input type="number" id="experienceYears" min="0" max="20" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Área de Formación Principal</label>
+                        <select id="education">
+                            <option value="Ingenieria">Ingeniería / Tecnología</option>
+                            <option value="Economia">Economía</option>
+                            <option value="Administracion">Administración / Negocios</option>
+                            <option value="Contabilidad">Contabilidad</option>
+                            <option value="Finanzas">Finanzas</option>
+                            <option value="Estadistica">Estadística / Data Science</option>
+                            <option value="Computacion">Ciencias de la Computación</option>
+                            <option value="Otra">Otra</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sql">SQL</label>
+                        <select id="sql">
+                            <option value="0">N/A</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Intermedio</option>
+                            <option value="3">Avanzado/Experto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="excel">Excel</label>
+                        <select id="excel">
+                            <option value="0">N/A</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Intermedio</option>
+                            <option value="3">Avanzado/Experto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bi">Business Intelligence (BI)</label>
+                        <select id="bi">
+                            <option value="0">N/A</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Intermedio</option>
+                            <option value="3">Avanzado/Experto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="python">Python</label>
+                        <select id="python">
+                            <option value="0">N/A</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Intermedio</option>
+                            <option value="3">Avanzado/Experto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fpa">FP&A (Financial Planning & Analysis)</label>
+                        <select id="fpa">
+                            <option value="0">N/A</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Intermedio</option>
+                            <option value="3">Avanzado/Experto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="english">Inglés</label>
+                        <select id="english">
+                            <option value="0">N/A</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Intermedio</option>
+                            <option value="3">Avanzado/Experto</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="updateMatches()" style="width: 100%; margin-top: 1rem;">
+                    💾 Actualizar Perfil y Recalcular Matches
+                </button>
+            </div>
+
+            <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: #333;">
+                📊 Ofertas Laborales Ordenadas por Compatibilidad
+            </h3>
+            
+            <div class="job-matches" id="jobMatches">
+                </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <a href="#servicios">Optimización de CV Harvard</a>
+                    <a href="#cursos">Cursos Online Especializados</a>
+                    <a href="#portafolio">Portafolio Data Analyst</a>
+                    <a href="#extension">Extensión LinkedIn</a>
+                    <a href="#descargas">Material Descargable</a>
+                    <a href="#prueba">Prueba Técnica</a>
+                    <a href="#empleos">Planet Match</a>
+                    <a href="#app">Planet STEAM App</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <a href="#">Blog Profesional</a>
+                    <a href="#">Tutoriales Avanzados</a>
+                    <a href="#">Documentación Técnica</a>
+                    <a href="#">Comunidad Premium</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <a href="mailto:planetsteamweb@gmail.com">planetsteamweb@gmail.com</a>
+                    <a href="mailto:support@planetjob.com">support@planetjob.com</a>
+                    <a href="tel:+51999999999">+51 999 999 999</a>
+                    <a href="#">LinkedIn Oficial</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Tu plataforma integral para el desarrollo profesional en tecnología, análisis de datos y programación. Conectamos talento con oportunidades.</p>
+                <p>&copy; 2025 Planet Job. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Job Data (Completed) ---
+        const demoJobs = [
+            {
+                id: 1,
+                title: "Financial Planning & Analysis Analyst (BCP)",
+                location: "La Molina, Perú",
+                description: "Rol enfocado en Forecasting, Presupuesto y Business Cases. Alto requerimiento de Excel y conocimiento de finanzas corporativas.",
+                tags: ["FP&A", "Financial Analysis", "Excel Avanzado", "Business Cases", "Híbrido"],
+                requirements: {
+                    experienceYears: 1,
+                    education: ['Ingenieria', 'Economia', 'Administracion', 'Finanzas'],
+                    skills: { sql: 2, excel: 3, bi: 1, fpa: 2, python: 0, english: 2 }
+                }
+            },
+            {
+                id: 2,
+                title: "Data Analyst / BI Specialist (RetailTech)",
+                location: "Remoto",
+                description: "Análisis de P&L, KPIs de Venta e inventario. Requiere Python y BI avanzado para la creación de dashboards dinámicos y reportes ejecutivos.",
+                tags: ["Data Analyst", "Business Intelligence", "Python", "SQL", "Tableau", "Remote"],
+                requirements: {
+                    experienceYears: 3,
+                    education: ['Ingenieria', 'Estadistica', 'Computacion'],
+                    skills: { sql: 3, excel: 2, bi: 3, python: 3, fpa: 1, english: 1 }
+                }
+            },
+            {
+                id: 3,
+                title: "Analista Contable Junior",
+                location: "Miraflores, Perú",
+                description: "Registro de transacciones, libros contables, conciliaciones bancarias y preparación de EEFF. Enfoque en precisión y cumplimiento normativo.",
+                tags: ["Contabilidad", "Finanzas", "Excel Intermedio", "SAP", "Presencial"],
+                requirements: {
+                    experienceYears: 1,
+                    education: ['Contabilidad', 'Administracion', 'Economia'],
+                    skills: { sql: 1, excel: 2, bi: 0, fpa: 0, python: 0, english: 1 }
+                }
+            },
+            {
+                id: 4,
+                title: "Machine Learning Engineer (AI)",
+                location: "Remoto Global",
+                description: "Diseño, entrenamiento e implementación de modelos de ML. Requiere experiencia en Python avanzado, cloud platforms (AWS/Azure) y MLOps.",
+                tags: ["ML", "Data Science", "Python Experto", "AWS", "MLOps", "Remote"],
+                requirements: {
+                    experienceYears: 4,
+                    education: ['Estadistica', 'Computacion', 'Ingenieria'],
+                    skills: { sql: 3, excel: 1, bi: 2, python: 3, fpa: 0, english: 3 }
+                }
+            },
+            {
+                id: 5,
+                title: "Practicante de Business Analytics",
+                location: "San Isidro, Perú",
+                description: "Soporte en la elaboración de reportes gerenciales, análisis ad-hoc y automatización de procesos con herramientas básicas. Oportunidad de crecimiento.",
+                tags: ["Practicante", "Analytics", "Excel", "Reporting", "Power BI Básico", "Híbrido"],
+                requirements: {
+                    experienceYears: 0,
+                    education: ['Ingenieria', 'Economia', 'Administracion'],
+                    skills: { sql: 1, excel: 3, bi: 1, fpa: 1, python: 1, english: 1 }
+                }
+            },
+        ];
+
+        // --- Utility Functions for Planet Match ---
+
+        // Function to calculate the match percentage between a job and the user's profile
+        const calculateMatchPercentage = (job, profile) => {
+            let userScore = 0;
+            const finalMaxScore = 100; // Total Max Points
+
+            // Define weights for each category (total max points: 100)
+            const expWeight = 30;
+            const eduWeight = 20;
+            const skillWeights = { sql: 10, excel: 10, bi: 10, python: 10, fpa: 5, english: 5 }; // Total 50 points
+
+            // 1. Experience Match (Max 30 points)
+            const requiredExp = job.requirements.experienceYears;
+            const userExp = profile.experienceYears;
+            
+            if (userExp >= requiredExp) {
+                userScore += expWeight; // Full score if user meets or exceeds requirement
+            } else if (requiredExp > 0) {
+                // Proportional score
+                userScore += Math.floor((userExp / requiredExp) * expWeight);
+            }
+
+            // 2. Education Match (Max 20 points)
+            if (job.requirements.education.includes(profile.education)) {
+                userScore += eduWeight;
+            } else if (profile.education !== 'Otra') {
+                // Heuristic for partial match (e.g., related fields get a boost)
+                const isRelated = ['Economia', 'Administracion', 'Contabilidad', 'Finanzas'].some(
+                    field => job.requirements.education.includes(field) && ['Economia', 'Administracion', 'Contabilidad', 'Finanzas'].includes(profile.education)
+                );
+                if (isRelated) {
+                    userScore += Math.floor(eduWeight / 2);
+                }
+            }
+
+            // 3. Skills Match (Max 50 points)
+            for (const skill in job.requirements.skills) {
+                const requiredLevel = job.requirements.skills[skill];
+                const userLevel = profile.skills[skill];
+                const weight = skillWeights[skill];
+                
+                if (requiredLevel > 0) {
+                    // Match score: score = (userLevel / requiredLevel) * weight
+                    let skillScore = (userLevel / requiredLevel) * weight;
+                    userScore += Math.min(skillScore, weight); // Cap score at max weight for that skill
+                } else if (userLevel > 0) {
+                    // Minor bonus for extra skill if job doesn't require it (Max 2 points)
+                     userScore += Math.min(2, userLevel);
+                }
+            }
+            
+            // Final calculation: normalize score to a 0-100 percentage
+            const matchPercentage = Math.round((userScore / finalMaxScore) * 100);
+            return Math.min(100, Math.max(0, matchPercentage)); // Ensure 0% to 100%
+        };
+
+        // Helper to get the progress bar class
+        const getMatchClass = (percentage) => {
+            if (percentage >= 80) return 'high';
+            if (percentage >= 60) return 'medium';
+            return 'low';
+        };
+
+        // Helper to generate the HTML for a job card
+        const createJobCardHTML = (job, matchPercentage, rank) => {
+            const matchClass = getMatchClass(matchPercentage);
+            // Limit tags to 5 for better display
+            const tagsHTML = job.tags.slice(0, 5).map(tag => `<span class="requirement-tag">${tag}</span>`).join('');
+
+            return `
+                <div class="match-card ${matchClass}" data-match="${matchPercentage}">
+                    <div class="rank-badge">${rank}</div>
+                    <div class="match-header">
+                        <div>
+                            <div class="job-title">${job.title}</div>
+                            <div class="job-location">${job.location}</div>
+                        </div>
+                        <div class="match-badge ${matchClass}">${matchPercentage}% Match</div>
+                    </div>
+                    <div class="job-description">${job.description}</div>
+                    <div class="requirements-grid">${tagsHTML}</div>
+                    <div class="match-progress">
+                        <div class="match-progress-bar ${matchClass}" style="width: ${matchPercentage}%"></div>
+                    </div>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1.5rem; padding: 10px 20px; font-size: 0.9rem;">Aplicar Ahora</a>
+                </div>
+            `;
+        };
+
+        // --- Main Logic Function ---
+        window.updateMatches = function() {
+            // 1. Read User Profile from Form
+            const profile = {
+                experienceYears: parseInt(document.getElementById('experienceYears').value) || 0,
+                education: document.getElementById('education').value,
+                skills: {
+                    sql: parseInt(document.getElementById('sql').value) || 0,
+                    excel: parseInt(document.getElementById('excel').value) || 0,
+                    bi: parseInt(document.getElementById('bi').value) || 0,
+                    python: parseInt(document.getElementById('python').value) || 0,
+                    fpa: parseInt(document.getElementById('fpa').value) || 0,
+                    english: parseInt(document.getElementById('english').value) || 0
+                }
+            };
+
+            // 2. Calculate Matches and Sort Jobs
+            let totalMatchPercentage = 0;
+            let highMatches = 0;
+            let mediumMatches = 0;
+
+            const matchedJobs = demoJobs.map(job => {
+                const matchPercentage = calculateMatchPercentage(job, profile);
+                job.matchPercentage = matchPercentage; // Attach score to job object for sorting
+                totalMatchPercentage += matchPercentage;
+
+                if (matchPercentage >= 80) highMatches++;
+                else if (matchPercentage >= 60) mediumMatches++;
+
+                return job;
+            });
+
+            // Sort by match percentage in descending order
+            matchedJobs.sort((a, b) => b.matchPercentage - a.matchPercentage);
+
+            // 3. Update Statistics Header
+            const avgMatch = matchedJobs.length > 0 ? Math.round(totalMatchPercentage / matchedJobs.length) : 0;
+            const avgMatchClass = getMatchClass(avgMatch);
+
+            document.getElementById('highMatches').textContent = highMatches;
+            document.getElementById('mediumMatches').textContent = mediumMatches;
+            document.getElementById('avgMatch').textContent = `${avgMatch}%`;
+            
+            // Set dynamic color for average match stat
+            document.getElementById('avgMatch').style.color = (avgMatchClass === 'high' ? '#10B981' : (avgMatchClass === 'medium' ? '#F59E0B' : '#7451dc'));
+
+
+            // 4. Render Job Cards with Ranking
+            const jobMatchesContainer = document.getElementById('jobMatches');
+            jobMatchesContainer.innerHTML = matchedJobs.map((job, index) => createJobCardHTML(job, job.matchPercentage, index + 1)).join('');
+        };
+
+        // --- Initial Load and Event Listeners (UI/UX) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+            }
+            
+            // Smooth Scroll (offsetting fixed navbar)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                 anchor.addEventListener('click', function (e) {
+                     e.preventDefault();
+                     const target = document.querySelector(this.getAttribute('href'));
+                     if (target) {
+                         // Adjust offset for fixed navbar
+                         const offsetTop = target.offsetTop - (this.closest('.navbar') ? 70 : 0);
+                         window.scrollTo({
+                             top: offsetTop,
+                             behavior: 'smooth'
+                         });
+                     }
+                 });
+            });
+
+            // Navbar opacity change on scroll
+            window.addEventListener('scroll', () => {
+                 const navbar = document.querySelector('.navbar');
+                 if (navbar && window.scrollY > 50) {
+                     navbar.style.background = 'rgba(0, 0, 71, 0.98)';
+                 } else if (navbar) {
+                     navbar.style.background = 'rgba(0, 0, 71, 0.95)';
+                 }
+            });
+
+            // Card Entrance Animation via setTimeout 
+            setTimeout(() => {
+                document.querySelectorAll('.service-card, .course-card, .ebook-card').forEach((card, index) => {
+                    if (card) {
+                        card.style.transition = 'all 0.6s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }, 100);
+
+            // --- Planet Match Initialization (Crucial for interaction) ---
+            updateMatches(); 
+            
+            // Add event listeners to all form fields for dynamic matching
+            document.getElementById('experienceYears').addEventListener('input', updateMatches);
+            document.getElementById('education').addEventListener('change', updateMatches);
+            document.getElementById('sql').addEventListener('change', updateMatches);
+            document.getElementById('excel').addEventListener('change', updateMatches);
+            document.getElementById('bi').addEventListener('change', updateMatches);
+            document.getElementById('python').addEventListener('change', updateMatches);
+            document.getElementById('fpa').addEventListener('change', updateMatches);
+            document.getElementById('english').addEventListener('change', updateMatches);
+        });
+    </script>
+</body>
+</html>
